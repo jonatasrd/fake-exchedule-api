@@ -1,0 +1,149 @@
+{
+	"info": {
+		"_postman_id": "5406f7da-628c-4a48-9301-0c4d84f04869",
+		"name": "[POC - Keycloak]",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "scheduling-services",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "1de55a6a-c87c-4fb9-8816-4369801fcfe6",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/auth/realms/Schedules/protocol/openid-connect/token",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"realms",
+						"Schedules",
+						"protocol",
+						"openid-connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get schedules",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJQcldrTzVQemhBQjhXaV9wUDl2WGhNTW1KQ24zTHdKSDg5enpyZk1TVGlZIn0.eyJleHAiOjE1OTYzMjg4NTksImlhdCI6MTU5NjMyODU1OSwianRpIjoiNDIyZTY0ZTAtZmRjMy00Zjk0LWFlZmUtYTY4MDJiMTAyZTI0IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2F1dGgvcmVhbG1zL1NjaGVkdWxlcyIsImF1ZCI6ImFjY291bnQiLCJzdWIiOiI4ZDNiNTZiNi01NDc5LTQ3MDItOTJhOS1jNjYwOWVlOWNjMmYiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJzY2hlZHVsaW5nLXNlcnZpY2VzIiwic2Vzc2lvbl9zdGF0ZSI6IjljODIxODM4LTkzN2UtNDMwOC05OTdkLTIxZWYxNjk0NzY2OCIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiaHR0cDovL2xvY2FsaG9zdDo4MDgxLyoiLCJodHRwOi8vbG9jYWxob3N0OjgwODIvKiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7InNjaGVkdWxpbmctc2VydmljZXMiOnsicm9sZXMiOlsidW1hX3Byb3RlY3Rpb24iLCJSVUxFU19BRE1JTiIsIkVYQ0hFRFVMRV9BRE1JTiJdfSwiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJlbWFpbCBwcm9maWxlIiwiY2xpZW50SG9zdCI6IjE3Mi4xNy4wLjEiLCJjbGllbnRJZCI6InNjaGVkdWxpbmctc2VydmljZXMiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsInByZWZlcnJlZF91c2VybmFtZSI6InNlcnZpY2UtYWNjb3VudC1zY2hlZHVsaW5nLXNlcnZpY2VzIiwiY2xpZW50QWRkcmVzcyI6IjE3Mi4xNy4wLjEifQ.b_DJ8e4_Ia8rD3eoWouTxpBrZoCIRYQIlw34hPWDEim_XOdQ1HcdWJVDDhFJzNA0k1O-fdHgl8HJQWmONDeglzPVcAsDaSV9or8wGOeQ2gQMNw_PPuZO_TGdlG0a1u6VN9ZM2ycHisU0GFbI7povXsdBikjO6jRX_7J1wYlmrvcMqkvHqQMZF9n-z-6J1kjL7Pef9nTTjVwPuNvuJfHdmCoerD1WQ3d3G-UKGJ7nIumAHY74njTn1sl2aYZ8SvXh4oqVin_VgXoiLjWmgdYydS6qP7dPtJTGkYYYHnN7M47n3bt2D0YVRY46QtgeDcOcKwAY--jwx8Hn2Tba9fu_cQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8081/api/schedules",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"schedules"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get rule by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/api/rules/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"rules",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get schedule by ID",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJQcldrTzVQemhBQjhXaV9wUDl2WGhNTW1KQ24zTHdKSDg5enpyZk1TVGlZIn0.eyJleHAiOjE1OTYzMzE2NDEsImlhdCI6MTU5NjMzMTM0MSwianRpIjoiYzlkODJmNjAtYTE2OC00NmRkLWI2MGEtYmEyOTYxYjcxY2E0IiwiaXNzIjoiaHR0cDovLzEyNy4wLjAuMTo4MDgwL2F1dGgvcmVhbG1zL1NjaGVkdWxlcyIsImF1ZCI6ImFjY291bnQiLCJzdWIiOiI4ZDNiNTZiNi01NDc5LTQ3MDItOTJhOS1jNjYwOWVlOWNjMmYiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJzY2hlZHVsaW5nLXNlcnZpY2VzIiwic2Vzc2lvbl9zdGF0ZSI6IjFmMzZlMDMwLWE3YWEtNDAyYS04YzMwLWExZGFmZGFhYmNjYSIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiaHR0cDovL2xvY2FsaG9zdDo4MDgyIiwiaHR0cDovL2xvY2FsaG9zdDo4MDgxIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsic2NoZWR1bGluZy1zZXJ2aWNlcyI6eyJyb2xlcyI6WyJ1bWFfcHJvdGVjdGlvbiIsIlJVTEVTX0FETUlOIiwiRVhDSEVEVUxFX0FETUlOIl19LCJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6ImVtYWlsIHByb2ZpbGUiLCJjbGllbnRIb3N0IjoiMTcyLjE3LjAuMSIsImNsaWVudElkIjoic2NoZWR1bGluZy1zZXJ2aWNlcyIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoic2VydmljZS1hY2NvdW50LXNjaGVkdWxpbmctc2VydmljZXMiLCJjbGllbnRBZGRyZXNzIjoiMTcyLjE3LjAuMSJ9.cJWrEysb_nKMwqUSoIKVTF7ekdNe5XQun7NhiLZKXLyAe0GrHvc_T0P49ufVLMJsDv-8RnGgBzTByNXTSJMjGzQ7fldQGTaRIV-5wwVQFhdk7dnpgrvhkn6vmRKB2D661XsBsInj_ktv1Fukl6FwFEMAU_4F_w4o9Fgz8OtfTZL-Yn_mOroulCHu1ib0rYhUSzoyRzVZsw7Rb2kmOYMPszzJgeBbIS5oIqi9EHEe_LeT26MztPYsESZbgoHn4yTgXBK7jhmgPAspyZIti01LhDvlCAYmusNKVxae64FDEFyV2bluzyURkAb1ddeBSPdDqe5E3uNikPtjeAok9j2r8g",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/api/schedules/6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"schedules",
+						"6"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
