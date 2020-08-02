@@ -1,0 +1,18 @@
+server:
+  port: 8081
+
+microservices:
+  rules-api:
+    url: http://localhost:8082
+
+keycloak:
+  realm: Schedules
+  auth-server-url: http://127.0.0.1:8080/auth
+  ssl-required: external
+  resource: scheduling-services
+  verify-token-audience: false
+  credentials:
+    secret: 1de55a6a-c87c-4fb9-8816-4369801fcfe6
+  use-resource-role-mappings: true
+  bearer-only: true
+  principal-attribute: preferred_username
